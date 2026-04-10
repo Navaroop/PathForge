@@ -1,22 +1,11 @@
-# Use a lightweight Java 21 image
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set the working directory
+FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
-
-# Copy the maven wrapper and pom file
-COPY mvnw .
-COPY .mvn .mvn
 COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Grant execution permission to the maven wrapper
-RUN chmod +x ./mvnw
-
-# Copy the source code
-COPY src src
-
-# Build the application
-RUN ./mvnw clean package -DskipTests
-
-# Run the jar file
-CMD ["java", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
