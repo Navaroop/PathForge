@@ -38,8 +38,9 @@ export default function AuthPage() {
                 email: login.email,
                 password: login.password
             });
-            
+
             const data = res.data;
+            localStorage.setItem('jwt', data.token);
             localStorage.setItem('fullName', data.fullName);
             localStorage.setItem('email', data.email);
             localStorage.setItem('department', data.department);
@@ -70,8 +71,9 @@ export default function AuthPage() {
                 department: reg.department,
                 currentSemester: Number(reg.currentSemester),
             });
-            
+
             const data = res.data;
+            localStorage.setItem('jwt', data.token);
             localStorage.setItem('fullName', data.fullName);
             localStorage.setItem('email', data.email);
             localStorage.setItem('department', data.department);

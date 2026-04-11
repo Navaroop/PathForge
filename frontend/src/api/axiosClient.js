@@ -2,14 +2,19 @@ import axios from 'axios';
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8080',
-  withCredentials: true, // Crucial for HTTPOnly cookies to be sent along!
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Notice we no longer need an interceptor to manually attach headers, 
-// because `withCredentials: true` tells the browser to automatically include 
-// the `jwt` cookie we created on the backend!
+// Attach JWT token from localStorage to every request
+axiosClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem('jwt');
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
+});
 
 export default axiosClient;

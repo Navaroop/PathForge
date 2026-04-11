@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import axiosClient from '../api/axiosClient';
 
 function SignIn() {
-  const [formData, setFormData]   = useState({ email: '', password: '' });
-  const [error, setError]         = useState('');
-  const [loading, setLoading]     = useState(false);
-  const navigate                  = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,10 +25,12 @@ function SignIn() {
 
       const data = response.data;
 
+      localStorage.setItem('jwt', data.token);
+
       // Save user info to localStorage (Token is now handled via secure HTTPOnly cookies automatically)
-      localStorage.setItem('fullName',  data.fullName);
-      localStorage.setItem('email',     data.email);
-      localStorage.setItem('department',     data.department);
+      localStorage.setItem('fullName', data.fullName);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('department', data.department);
       localStorage.setItem('currentSemester', String(data.currentSemester));
 
       navigate('/dashboard');

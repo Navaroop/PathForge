@@ -7,9 +7,9 @@ function SignUp() {
     fullName: '', email: '', department: '',
     currentSemester: '', password: '', confirmPassword: '',
   });
-  const [error, setError]     = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate              = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,19 +26,21 @@ function SignUp() {
 
     try {
       const response = await axiosClient.post('/api/auth/signup', {
-        fullName:        formData.fullName,
-        email:           formData.email,
-        password:        formData.password,
-        department:      formData.department,
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+        department: formData.department,
         currentSemester: Number(formData.currentSemester),
       });
 
       const data = response.data;
 
+      localStorage.setItem('jwt', data.token);
+
       // Save user info to localStorage (Token is now handled via secure HTTPOnly cookies automatically)
-      localStorage.setItem('fullName',        data.fullName);
-      localStorage.setItem('email',           data.email);
-      localStorage.setItem('department',      data.department);
+      localStorage.setItem('fullName', data.fullName);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('department', data.department);
       localStorage.setItem('currentSemester', String(data.currentSemester));
 
       navigate('/dashboard');
@@ -54,7 +56,7 @@ function SignUp() {
     }
   };
 
-  const inputClass  = "w-full bg-[var(--bg-surface)] border border-[rgba(56,189,248,0.15)] rounded-xl px-4 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm outline-none focus:border-[var(--accent-highlight)] transition-colors";
+  const inputClass = "w-full bg-[var(--bg-surface)] border border-[rgba(56,189,248,0.15)] rounded-xl px-4 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm outline-none focus:border-[var(--accent-highlight)] transition-colors";
   const selectClass = "w-full bg-[var(--bg-secondary)] border border-[rgba(56,189,248,0.15)] rounded-xl px-4 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm outline-none focus:border-[var(--accent-highlight)] transition-colors appearance-none";
 
   return (
@@ -106,7 +108,7 @@ function SignUp() {
           <select name="currentSemester" value={formData.currentSemester}
             onChange={handleChange} required className={selectClass}>
             <option value="">Current Semester</option>
-            {[1,2,3,4,5,6,7,8].map(sem => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map(sem => (
               <option key={sem} value={sem}>Semester {sem}</option>
             ))}
           </select>

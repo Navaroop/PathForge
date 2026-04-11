@@ -76,7 +76,7 @@ function DashboardLayout() {
 
   return (
     <div className="flex flex-col h-screen overflow-hidden text-[var(--text-primary)]">
-      
+
       {/* Integrated Navbar Component */}
       <Navbar
         theme={theme}
@@ -87,7 +87,7 @@ function DashboardLayout() {
 
       {/* Main Body */}
       <div className="flex flex-1 overflow-hidden relative">
-        
+
         {/* Deep Space Background Glows (Only visible in dark mode effectively unless opacity increased) */}
         {theme === 'dark' && (
           <>
@@ -106,10 +106,9 @@ function DashboardLayout() {
                 end={item.path === '/dashboard'}
                 title={!isSidebarOpen ? item.label : undefined}
                 className={({ isActive }) =>
-                  `flex items-center px-6 py-3 text-[11.5px] font-medium transition-all ${
-                    isActive
-                      ? 'text-[var(--accent-highlight)] bg-[var(--accent-glow)] border-r-2 border-[var(--accent-highlight)]'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--accent-highlight)] hover:bg-[var(--bg-surface)] border-r-2 border-transparent'
+                  `flex items-center px-6 py-3 text-[11.5px] font-medium transition-all ${isActive
+                    ? 'text-[var(--accent-highlight)] bg-[var(--accent-glow)] border-r-2 border-[var(--accent-highlight)]'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--accent-highlight)] hover:bg-[var(--bg-surface)] border-r-2 border-transparent'
                   }`
                 }
               >
@@ -120,10 +119,17 @@ function DashboardLayout() {
               </NavLink>
             ))}
           </nav>
-          
+
           <div className="p-4 border-t border-[var(--border-glass)]">
             <button
-              onClick={() => navigate('/signin')}
+              onClick={() => {
+                localStorage.removeItem('jwt');
+                localStorage.removeItem('fullName');
+                localStorage.removeItem('email');
+                localStorage.removeItem('department');
+                localStorage.removeItem('currentSemester');
+                navigate('/signin');
+              }}
               title={!isSidebarOpen ? 'Sign Out' : undefined}
               className={`flex items-center px-4 py-2 text-[11.5px] font-medium text-[var(--text-secondary)] hover:text-[var(--color-warning)] hover:bg-[rgba(251,191,36,0.1)] rounded-lg transition-colors border border-transparent ${isSidebarOpen ? 'gap-3 w-full' : 'justify-center w-full'}`}
             >

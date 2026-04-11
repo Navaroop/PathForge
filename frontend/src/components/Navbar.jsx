@@ -76,12 +76,11 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
   const getInitials = (name) => name?.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'AA';
 
   return (
-    <header className={`h-[60px] flex items-center justify-between px-6 shrink-0 z-50 transition-colors backdrop-blur-xl border-b ${
-      theme === 'light'
-        ? 'bg-[rgba(240,247,255,0.80)] border-[rgba(14,165,233,0.15)] shadow-[0_2px_16px_rgba(14,165,233,0.08)]'
-        : 'bg-[var(--bg-secondary)] border-[var(--border-glass)]'
-    }`}>
-      
+    <header className={`h-[60px] flex items-center justify-between px-6 shrink-0 z-50 transition-colors backdrop-blur-xl border-b ${theme === 'light'
+      ? 'bg-[rgba(240,247,255,0.80)] border-[rgba(14,165,233,0.15)] shadow-[0_2px_16px_rgba(14,165,233,0.08)]'
+      : 'bg-[var(--bg-secondary)] border-[var(--border-glass)]'
+      }`}>
+
       {/* Left: Hamburger & Logo */}
       <div className="flex items-center gap-4">
         <button
@@ -98,8 +97,8 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
             <span className="text-white text-base font-black tracking-tighter" style={{ fontFamily: "'Outfit', sans-serif" }}>PF</span>
           </div>
           <div className="hidden md:flex flex-col justify-center">
-            <span 
-              className="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-primary)] group-hover:from-[var(--accent-primary)] group-hover:to-[var(--accent-highlight)] transition-all duration-300 leading-none drop-shadow-sm" 
+            <span
+              className="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-primary)] group-hover:from-[var(--accent-primary)] group-hover:to-[var(--accent-highlight)] transition-all duration-300 leading-none drop-shadow-sm"
               style={{ fontFamily: "'Outfit', sans-serif", letterSpacing: "-0.03em" }}
             >
               PATHFORGE
@@ -110,11 +109,10 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
 
       {/* Center: Search Bar */}
       <div className="flex-1 max-w-lg mx-6 hidden sm:block relative" ref={searchContainerRef}>
-        <div className={`relative flex items-center w-full transition-all duration-200 rounded-xl border ${
-          isSearchOpen 
-            ? 'bg-[var(--bg-primary)] border-[var(--accent-highlight)] shadow-[0_0_0_2px_rgba(14,165,233,0.2)]'
-            : 'bg-[var(--bg-surface)] border-[var(--border-glass)] hover:border-[var(--border-hover)]'
-        }`}>
+        <div className={`relative flex items-center w-full transition-all duration-200 rounded-xl border ${isSearchOpen
+          ? 'bg-[var(--bg-primary)] border-[var(--accent-highlight)] shadow-[0_0_0_2px_rgba(14,165,233,0.2)]'
+          : 'bg-[var(--bg-surface)] border-[var(--border-glass)] hover:border-[var(--border-hover)]'
+          }`}>
           <Search size={16} className="absolute left-3 text-[var(--text-muted)]" />
           <input
             ref={searchInputRef}
@@ -139,9 +137,9 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
                 <div className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider px-2 py-1.5">Pages</div>
                 <div className="flex flex-col gap-0.5">
                   {filteredPages.map(page => (
-                    <button 
+                    <button
                       key={page.path}
-                      onClick={() => { navigate(page.path); setIsSearchOpen(false); setSearchQuery(''); }} 
+                      onClick={() => { navigate(page.path); setIsSearchOpen(false); setSearchQuery(''); }}
                       className="w-full text-left px-3 py-2 text-sm text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] rounded-lg transition-colors"
                     >
                       {page.label}
@@ -150,14 +148,23 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
                 </div>
               </div>
             )}
-            
+
             {filteredActions.length > 0 && (
               <div className="border-t border-[var(--border-glass)] p-2 bg-[var(--bg-secondary)]">
                 <div className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider px-2 py-1.5">Quick Actions</div>
                 {filteredActions.map(action => (
-                  <button 
+                  <button
                     key={action.path}
-                    onClick={() => { navigate(action.path); setIsSearchOpen(false); setSearchQuery(''); }} 
+                    onClick={() => {
+                      localStorage.removeItem('jwt');
+                      localStorage.removeItem('fullName');
+                      localStorage.removeItem('email');
+                      localStorage.removeItem('department');
+                      localStorage.removeItem('currentSemester');
+                      navigate(action.path);
+                      setIsSearchOpen(false);
+                      setSearchQuery('');
+                    }}
                     className="w-full text-left px-3 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--color-error)] hover:bg-[var(--bg-surface-hover)] rounded-lg transition-colors"
                   >
                     {action.label}
@@ -171,10 +178,10 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
 
       {/* Right: Notifications, Toggle, Profile */}
       <div className="flex items-center gap-2 sm:gap-4">
-        
+
         {/* Notifications */}
         <div className="relative" ref={notificationsRef}>
-          <button 
+          <button
             onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
             className="relative p-2 text-[var(--text-secondary)] hover:text-[var(--accent-highlight)] hover:bg-[var(--bg-surface-hover)] rounded-lg transition-colors"
           >
@@ -201,11 +208,10 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
               <div className="max-h-[300px] overflow-y-auto p-1 flex flex-col">
                 {notificationsList.map(notif => (
                   <div key={notif.id} className={`flex items-start gap-3 p-3 rounded-lg transition-colors cursor-pointer ${notif.unread && unreadCount > 0 ? 'bg-[var(--bg-surface-hover)]' : 'hover:bg-[var(--bg-surface-hover)]'}`}>
-                    <div className={`p-1.5 rounded-full flex-shrink-0 bg-[var(--bg-primary)] border border-[var(--border-glass)] shadow-sm ${
-                      notif.type === 'warning' ? 'text-[var(--color-warning)]' :
+                    <div className={`p-1.5 rounded-full flex-shrink-0 bg-[var(--bg-primary)] border border-[var(--border-glass)] shadow-sm ${notif.type === 'warning' ? 'text-[var(--color-warning)]' :
                       notif.type === 'success' ? 'text-[var(--color-success)]' :
-                      'text-[var(--accent-primary)]'
-                    }`}>
+                        'text-[var(--accent-primary)]'
+                      }`}>
                       {notif.type === 'warning' && <AlertTriangle size={14} />}
                       {notif.type === 'success' && <CheckCircle2 size={14} />}
                       {notif.type === 'info' && <Info size={14} />}
@@ -229,17 +235,15 @@ export default function Navbar({ theme, onThemeToggle, onMenuToggle, user }) {
         <div className="flex items-center gap-2 border-l border-[var(--border-glass)] pl-2 sm:pl-4">
           <button
             onClick={onThemeToggle}
-            className={`relative w-12 sm:w-14 h-6 sm:h-7 rounded-full flex items-center transition-all duration-300 flex-shrink-0 ${
-              theme === 'light' 
-                ? 'bg-[rgba(255,255,255,0.60)] border border-[rgba(14,165,233,0.18)]' 
-                : 'bg-[rgba(14,165,233,0.10)] border border-[rgba(56,189,248,0.12)] shadow-[0_0_10px_rgba(14,165,233,0.30)]'
-            }`}
+            className={`relative w-12 sm:w-14 h-6 sm:h-7 rounded-full flex items-center transition-all duration-300 flex-shrink-0 ${theme === 'light'
+              ? 'bg-[rgba(255,255,255,0.60)] border border-[rgba(14,165,233,0.18)]'
+              : 'bg-[rgba(14,165,233,0.10)] border border-[rgba(56,189,248,0.12)] shadow-[0_0_10px_rgba(14,165,233,0.30)]'
+              }`}
           >
-            <span className={`absolute flex items-center justify-center w-[18px] h-[18px] sm:w-5 sm:h-5 rounded-full shadow transition-transform duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-              theme === 'light'
-                ? 'translate-x-[3px] bg-white text-[#38bdf8] shadow-[0_2px_4px_rgba(14,165,233,0.2)]'
-                : 'translate-x-[26px] sm:translate-x-8 bg-[#38bdf8] text-[#03080f] shadow-[0_0_8px_#38bdf8]'
-            }`}>
+            <span className={`absolute flex items-center justify-center w-[18px] h-[18px] sm:w-5 sm:h-5 rounded-full shadow transition-transform duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] ${theme === 'light'
+              ? 'translate-x-[3px] bg-white text-[#38bdf8] shadow-[0_2px_4px_rgba(14,165,233,0.2)]'
+              : 'translate-x-[26px] sm:translate-x-8 bg-[#38bdf8] text-[#03080f] shadow-[0_0_8px_#38bdf8]'
+              }`}>
               {theme === 'light' ? <Sun size={10} className="sm:w-3 sm:h-3" /> : <Moon size={10} className="sm:w-3 sm:h-3" />}
             </span>
           </button>
