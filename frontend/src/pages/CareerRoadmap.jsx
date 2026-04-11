@@ -419,6 +419,7 @@ JSON: {"title":"","summary":"","targetJob":null,"months":[{"month":1,"theme":"",
 
       const raw = await callAI(userMessage, systemPrompt);
       const parsed = extractJSON(raw);
+      if (!parsed) throw new Error("AI response could not be parsed. Please try again.");
       if (parsed.error) throw new Error(parsed.error);
       setRoadmap(parsed);
       setRoadmapId(null); // Clear ID until user saves explicitly
