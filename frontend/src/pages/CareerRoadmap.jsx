@@ -50,67 +50,67 @@ const PREP_TIME_OPTIONS = ["1 Week", "2 Weeks", "3 Weeks", "1 Month", "2 Months"
 // ── Full domain curricula for Default Roadmaps + AI prompt injection ──
 const DOMAIN_CURRICULA = {
   "AI & Machine Learning": {
-    basic: ["Python fundamentals (NumPy, Pandas, Matplotlib)","Math for ML: Linear Algebra, Probability, Statistics","Data preprocessing: cleaning, normalization, encoding","Supervised Learning: Linear/Logistic Regression, Decision Trees","Model evaluation: accuracy, precision, recall, F1","scikit-learn workflow: fit, predict, pipeline"],
-    intermediate: ["Ensemble methods: Random Forest, XGBoost, LightGBM","Unsupervised: K-Means, DBSCAN, PCA, t-SNE","Feature engineering and selection","Neural Networks: perceptron, backpropagation","Deep Learning: CNNs, RNNs, LSTMs (TensorFlow/PyTorch)","Hyperparameter tuning: GridSearchCV, Optuna"],
-    advanced: ["NLP: tokenization, embeddings, transformers, BERT, GPT","Computer Vision: YOLO, image segmentation, transfer learning","Reinforcement Learning: Q-Learning, PPO","Generative AI: GANs, VAEs, Diffusion Models","LLM fine-tuning: LoRA, PEFT, RAG pipelines","MLOps: MLflow, DVC, Docker deployment","Explainable AI: SHAP, LIME"],
-    projects: ["House price predictor","Sentiment analysis app","Image classifier with CNN","RAG-based document Q&A chatbot","Real-time object detection system","End-to-end MLOps pipeline"]
+    basic: ["Python fundamentals (NumPy, Pandas, Matplotlib)", "Math for ML: Linear Algebra, Probability, Statistics", "Data preprocessing: cleaning, normalization, encoding", "Supervised Learning: Linear/Logistic Regression, Decision Trees", "Model evaluation: accuracy, precision, recall, F1", "scikit-learn workflow: fit, predict, pipeline"],
+    intermediate: ["Ensemble methods: Random Forest, XGBoost, LightGBM", "Unsupervised: K-Means, DBSCAN, PCA, t-SNE", "Feature engineering and selection", "Neural Networks: perceptron, backpropagation", "Deep Learning: CNNs, RNNs, LSTMs (TensorFlow/PyTorch)", "Hyperparameter tuning: GridSearchCV, Optuna"],
+    advanced: ["NLP: tokenization, embeddings, transformers, BERT, GPT", "Computer Vision: YOLO, image segmentation, transfer learning", "Reinforcement Learning: Q-Learning, PPO", "Generative AI: GANs, VAEs, Diffusion Models", "LLM fine-tuning: LoRA, PEFT, RAG pipelines", "MLOps: MLflow, DVC, Docker deployment", "Explainable AI: SHAP, LIME"],
+    projects: ["House price predictor", "Sentiment analysis app", "Image classifier with CNN", "RAG-based document Q&A chatbot", "Real-time object detection system", "End-to-end MLOps pipeline"]
   },
   "Web Development": {
-    basic: ["HTML5 semantics, forms, accessibility","CSS3: Flexbox, Grid, animations, responsive design","JavaScript: DOM, events, fetch API, ES6+","Git, GitHub, branching strategies","Basic command line usage"],
-    intermediate: ["React.js: components, hooks, Router, Context API","Backend: Node.js + Express or Spring Boot","REST API: CRUD, status codes, Postman","Databases: MySQL/PostgreSQL, MongoDB","Authentication: JWT, OAuth2","State management: Redux Toolkit","CSS frameworks: Tailwind, Bootstrap"],
-    advanced: ["Next.js: SSR, SSG, ISR, App Router","TypeScript in React","GraphQL: Apollo Client","WebSockets: Socket.io real-time","Microservices architecture","Docker + Docker Compose","CI/CD: GitHub Actions","Cloud deployment: Vercel, AWS"],
-    projects: ["Portfolio website","Blog platform with auth","E-commerce catalog","Full-stack SaaS app with Stripe","Real-time collaborative tool"]
+    basic: ["HTML5 semantics, forms, accessibility", "CSS3: Flexbox, Grid, animations, responsive design", "JavaScript: DOM, events, fetch API, ES6+", "Git, GitHub, branching strategies", "Basic command line usage"],
+    intermediate: ["React.js: components, hooks, Router, Context API", "Backend: Node.js + Express or Spring Boot", "REST API: CRUD, status codes, Postman", "Databases: MySQL/PostgreSQL, MongoDB", "Authentication: JWT, OAuth2", "State management: Redux Toolkit", "CSS frameworks: Tailwind, Bootstrap"],
+    advanced: ["Next.js: SSR, SSG, ISR, App Router", "TypeScript in React", "GraphQL: Apollo Client", "WebSockets: Socket.io real-time", "Microservices architecture", "Docker + Docker Compose", "CI/CD: GitHub Actions", "Cloud deployment: Vercel, AWS"],
+    projects: ["Portfolio website", "Blog platform with auth", "E-commerce catalog", "Full-stack SaaS app with Stripe", "Real-time collaborative tool"]
   },
   "Cybersecurity": {
-    basic: ["Networking: OSI model, TCP/IP, DNS, HTTP/S","Linux command line, file permissions","CIA triad, threat landscape, attack vectors","Cryptography: symmetric/asymmetric, hashing, SSL/TLS","OWASP Top 10 overview","Kali Linux introduction"],
-    intermediate: ["Nmap, Netcat, Wireshark packet analysis","Vulnerability assessment: Nessus, OpenVAS","Web attacks: SQL injection, XSS, CSRF","Metasploit Framework exploitation","Password attacks: Hashcat, John the Ripper","Privilege escalation techniques","CTF challenges: TryHackMe, HackTheBox"],
-    advanced: ["Advanced pen testing methodology (PTES)","Active Directory attacks: Kerberoasting, BloodHound","Malware analysis: static/dynamic, sandboxing","Reverse engineering: Ghidra basics","Cloud security: AWS IAM misconfigs","SOC: SIEM (Splunk, ELK), incident response","Bug bounty methodology"],
-    projects: ["Home lab with VMs","Port scanner in Python","DVWA exploitation","Full pen test report","Custom intrusion detection system"]
+    basic: ["Networking: OSI model, TCP/IP, DNS, HTTP/S", "Linux command line, file permissions", "CIA triad, threat landscape, attack vectors", "Cryptography: symmetric/asymmetric, hashing, SSL/TLS", "OWASP Top 10 overview", "Kali Linux introduction"],
+    intermediate: ["Nmap, Netcat, Wireshark packet analysis", "Vulnerability assessment: Nessus, OpenVAS", "Web attacks: SQL injection, XSS, CSRF", "Metasploit Framework exploitation", "Password attacks: Hashcat, John the Ripper", "Privilege escalation techniques", "CTF challenges: TryHackMe, HackTheBox"],
+    advanced: ["Advanced pen testing methodology (PTES)", "Active Directory attacks: Kerberoasting, BloodHound", "Malware analysis: static/dynamic, sandboxing", "Reverse engineering: Ghidra basics", "Cloud security: AWS IAM misconfigs", "SOC: SIEM (Splunk, ELK), incident response", "Bug bounty methodology"],
+    projects: ["Home lab with VMs", "Port scanner in Python", "DVWA exploitation", "Full pen test report", "Custom intrusion detection system"]
   },
   "Data Science & Analytics": {
-    basic: ["Python: NumPy, Pandas, Matplotlib, Seaborn","Data cleaning and wrangling","Descriptive statistics, distributions","Exploratory Data Analysis (EDA)","SQL: SELECT, JOIN, GROUP BY, window functions","Excel/Google Sheets analysis"],
-    intermediate: ["Visualization: Plotly, Tableau, Power BI","Statistical inference, hypothesis testing, A/B testing","Feature engineering, correlation analysis","Predictive modeling with scikit-learn","Time series: ARIMA, seasonal decomposition","Web scraping: BeautifulSoup, Scrapy"],
-    advanced: ["Big Data: Apache Spark, Hadoop","ETL pipelines: Airflow, dbt","Data warehousing: Snowflake, BigQuery","Advanced time series: Prophet, LSTM","NLP analytics: topic modeling, sentiment","Real-time analytics: Kafka, streaming"],
-    projects: ["COVID-19 dashboard","Customer churn prediction","Stock price trend analysis","End-to-end pipeline with Airflow + BigQuery","Real-time analytics with Kafka + Spark"]
+    basic: ["Python: NumPy, Pandas, Matplotlib, Seaborn", "Data cleaning and wrangling", "Descriptive statistics, distributions", "Exploratory Data Analysis (EDA)", "SQL: SELECT, JOIN, GROUP BY, window functions", "Excel/Google Sheets analysis"],
+    intermediate: ["Visualization: Plotly, Tableau, Power BI", "Statistical inference, hypothesis testing, A/B testing", "Feature engineering, correlation analysis", "Predictive modeling with scikit-learn", "Time series: ARIMA, seasonal decomposition", "Web scraping: BeautifulSoup, Scrapy"],
+    advanced: ["Big Data: Apache Spark, Hadoop", "ETL pipelines: Airflow, dbt", "Data warehousing: Snowflake, BigQuery", "Advanced time series: Prophet, LSTM", "NLP analytics: topic modeling, sentiment", "Real-time analytics: Kafka, streaming"],
+    projects: ["COVID-19 dashboard", "Customer churn prediction", "Stock price trend analysis", "End-to-end pipeline with Airflow + BigQuery", "Real-time analytics with Kafka + Spark"]
   },
   "Cloud Computing & DevOps": {
-    basic: ["Cloud concepts: IaaS, PaaS, SaaS","AWS/GCP/Azure: EC2, S3, VPC, IAM","Linux admin: shell scripting, cron, services","Networking: DNS, load balancers, firewalls","Git and GitHub","DevOps culture and practices"],
-    intermediate: ["Docker: images, containers, Compose","Kubernetes: pods, deployments, services, Helm","CI/CD: GitHub Actions, Jenkins","IaC: Terraform, CloudFormation","Ansible configuration management","Monitoring: Prometheus, Grafana, ELK","Cloud databases: RDS, DynamoDB"],
-    advanced: ["K8s advanced: autoscaling, RBAC, Istio","Multi-cloud/hybrid strategies","SRE: SLOs, error budgets","DevSecOps: SAST, DAST, Vault","Serverless: Lambda, API Gateway","GitOps: ArgoCD, FluxCD","Cost optimization, disaster recovery"],
-    projects: ["Static site on S3 + CloudFront","Containerized microservices on K8s","Automated CI/CD pipeline","Multi-region HA architecture","Full GitOps pipeline with ArgoCD"]
+    basic: ["Cloud concepts: IaaS, PaaS, SaaS", "AWS/GCP/Azure: EC2, S3, VPC, IAM", "Linux admin: shell scripting, cron, services", "Networking: DNS, load balancers, firewalls", "Git and GitHub", "DevOps culture and practices"],
+    intermediate: ["Docker: images, containers, Compose", "Kubernetes: pods, deployments, services, Helm", "CI/CD: GitHub Actions, Jenkins", "IaC: Terraform, CloudFormation", "Ansible configuration management", "Monitoring: Prometheus, Grafana, ELK", "Cloud databases: RDS, DynamoDB"],
+    advanced: ["K8s advanced: autoscaling, RBAC, Istio", "Multi-cloud/hybrid strategies", "SRE: SLOs, error budgets", "DevSecOps: SAST, DAST, Vault", "Serverless: Lambda, API Gateway", "GitOps: ArgoCD, FluxCD", "Cost optimization, disaster recovery"],
+    projects: ["Static site on S3 + CloudFront", "Containerized microservices on K8s", "Automated CI/CD pipeline", "Multi-region HA architecture", "Full GitOps pipeline with ArgoCD"]
   },
   "Mobile App Development": {
-    basic: ["Native vs cross-platform overview","Flutter/Dart OR React Native basics","UI: spacing, typography, color theory","State management basics","Emulator and physical device setup","Git for mobile projects"],
-    intermediate: ["Flutter: Provider/Riverpod/Bloc OR RN: Redux","REST API integration, JSON parsing","Local storage: SharedPreferences/SQLite","Firebase: Auth, Firestore, FCM","Form validation, error handling","Responsive layouts"],
-    advanced: ["Native modules, platform bridges","Advanced animations: Lottie, Hero","Offline-first apps, sync strategies","Performance optimization, profiling","Push notifications: FCM, APNs","In-app purchases","App Store/Play Store publishing","CI/CD: Fastlane, Codemagic"],
-    projects: ["Weather app","E-commerce app with Firebase","Real-time chat app","Social media app with media upload","Published app on Play Store"]
+    basic: ["Native vs cross-platform overview", "Flutter/Dart OR React Native basics", "UI: spacing, typography, color theory", "State management basics", "Emulator and physical device setup", "Git for mobile projects"],
+    intermediate: ["Flutter: Provider/Riverpod/Bloc OR RN: Redux", "REST API integration, JSON parsing", "Local storage: SharedPreferences/SQLite", "Firebase: Auth, Firestore, FCM", "Form validation, error handling", "Responsive layouts"],
+    advanced: ["Native modules, platform bridges", "Advanced animations: Lottie, Hero", "Offline-first apps, sync strategies", "Performance optimization, profiling", "Push notifications: FCM, APNs", "In-app purchases", "App Store/Play Store publishing", "CI/CD: Fastlane, Codemagic"],
+    projects: ["Weather app", "E-commerce app with Firebase", "Real-time chat app", "Social media app with media upload", "Published app on Play Store"]
   },
   "Game Development": {
-    basic: ["Game loop, frame rate, delta time","Unity/Godot basics: GameObjects, Scenes","2D: sprites, tilemaps, collisions, physics","C# for Unity OR GDScript","Input handling: keyboard, mouse, touch","Audio: sound effects, background music"],
-    intermediate: ["3D: meshes, materials, lighting, cameras","Animation: animator, blend trees","Physics: rigidbodies, raycasting","UI: health bars, menus, HUD","Particle systems and VFX","Pathfinding: NavMesh, A*","Scriptable Objects"],
-    advanced: ["Shader programming: HLSL, Shader Graph","Multiplayer: Netcode, Mirror, Photon","Procedural generation","Game AI: FSM, behavior trees","Performance: batching, LOD, profiling","Mobile optimization, monetization","Publishing on Steam/itch.io"],
-    projects: ["Pong/Flappy Bird clone","2D platformer with enemies","Top-down RPG with inventory","3D FPS with AI enemies","Multiplayer online game"]
+    basic: ["Game loop, frame rate, delta time", "Unity/Godot basics: GameObjects, Scenes", "2D: sprites, tilemaps, collisions, physics", "C# for Unity OR GDScript", "Input handling: keyboard, mouse, touch", "Audio: sound effects, background music"],
+    intermediate: ["3D: meshes, materials, lighting, cameras", "Animation: animator, blend trees", "Physics: rigidbodies, raycasting", "UI: health bars, menus, HUD", "Particle systems and VFX", "Pathfinding: NavMesh, A*", "Scriptable Objects"],
+    advanced: ["Shader programming: HLSL, Shader Graph", "Multiplayer: Netcode, Mirror, Photon", "Procedural generation", "Game AI: FSM, behavior trees", "Performance: batching, LOD, profiling", "Mobile optimization, monetization", "Publishing on Steam/itch.io"],
+    projects: ["Pong/Flappy Bird clone", "2D platformer with enemies", "Top-down RPG with inventory", "3D FPS with AI enemies", "Multiplayer online game"]
   },
   "IoT & Embedded Systems": {
-    basic: ["Electronics: voltage, current, circuits","Arduino: GPIO, digital/analog I/O","Sensors: temperature, ultrasonic, LEDs, motors","C/C++ for Arduino, MicroPython","Breadboard prototyping","Serial communication: UART"],
-    intermediate: ["Raspberry Pi: Linux, GPIO, camera","Protocols: I2C, SPI, UART, PWM","Wireless: WiFi (ESP32), Bluetooth, Zigbee","MQTT: broker, pub/sub","IoT platforms: ThingSpeak, AWS IoT Core","Dashboards: Grafana + InfluxDB","Power management"],
-    advanced: ["Edge AI: TF Lite on RPi, Jetson Nano","RTOS: FreeRTOS, task scheduling","Industrial: Modbus, CAN bus, OPC-UA","LoRaWAN long-range IoT","IoT security: auth, encryption, OTA","Custom PCB: KiCad, Gerber files","Digital twins, fleet management"],
-    projects: ["Temp/humidity monitor with LCD","Home automation with voice control","Smart plant watering with MQTT","Edge AI security camera","Industrial sensor dashboard"]
+    basic: ["Electronics: voltage, current, circuits", "Arduino: GPIO, digital/analog I/O", "Sensors: temperature, ultrasonic, LEDs, motors", "C/C++ for Arduino, MicroPython", "Breadboard prototyping", "Serial communication: UART"],
+    intermediate: ["Raspberry Pi: Linux, GPIO, camera", "Protocols: I2C, SPI, UART, PWM", "Wireless: WiFi (ESP32), Bluetooth, Zigbee", "MQTT: broker, pub/sub", "IoT platforms: ThingSpeak, AWS IoT Core", "Dashboards: Grafana + InfluxDB", "Power management"],
+    advanced: ["Edge AI: TF Lite on RPi, Jetson Nano", "RTOS: FreeRTOS, task scheduling", "Industrial: Modbus, CAN bus, OPC-UA", "LoRaWAN long-range IoT", "IoT security: auth, encryption, OTA", "Custom PCB: KiCad, Gerber files", "Digital twins, fleet management"],
+    projects: ["Temp/humidity monitor with LCD", "Home automation with voice control", "Smart plant watering with MQTT", "Edge AI security camera", "Industrial sensor dashboard"]
   }
 };
 
 // ── JSON parser ──────────────────────────────────────────────
 function extractJSON(str) {
   if (!str) return null;
-  
+
   // 1. Try to find content within markdown code blocks first
   let cleaned = str.replace(/```(?:json)?\s*([\s\S]*?)\s*```/g, '$1').trim();
-  try { return JSON.parse(cleaned); } catch (e) {}
+  try { return JSON.parse(cleaned); } catch (e) { }
 
   // 2. Try to find the first { and last } to isolate a potential JSON object
   const firstBrace = str.indexOf('{');
   const lastBrace = str.lastIndexOf('}');
-  
+
   if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
     const candidate = str.substring(firstBrace, lastBrace + 1);
     try {
@@ -130,9 +130,9 @@ function extractJSON(str) {
       }
     }
   }
-  
+
   // 3. Last ditch: check if 'str' itself is just valid JSON
-  try { return JSON.parse(str); } catch (e) {}
+  try { return JSON.parse(str); } catch (e) { }
 
   return null;
 }
@@ -145,11 +145,11 @@ function toText(item) {
 
 async function callAI(userMessage, systemPrompt, maxTokens = 3500) {
   try {
-    const response = await axiosClient.post(`/api/ai/chat`, { 
-      message: userMessage, 
-      system: systemPrompt, 
+    const response = await axiosClient.post(`/api/ai/chat`, {
+      message: userMessage,
+      system: systemPrompt,
       max_tokens: maxTokens,
-      feature: "career_roadmap" 
+      feature: "career_roadmap"
     });
     if (response.data.error) {
       if (response.data.error.includes("rate_limit")) {
@@ -159,7 +159,7 @@ async function callAI(userMessage, systemPrompt, maxTokens = 3500) {
     }
     const aiText = response.data.response || response.data.analysis || "";
     if (!aiText.trim()) throw new Error("AI returned empty response");
-    
+
     console.log("AI Raw Text:", aiText);
     return aiText;
   } catch (error) {
@@ -425,7 +425,7 @@ JSON: {"title":"","summary":"","targetJob":null,"months":[{"month":1,"theme":"",
 
       setStage("result");
     } catch (err) {
-      setError(`Failed to generate roadmap: ${err.message}`);
+      setError(`Failed to generate roadmap. Please try again in a few seconds.`);
     } finally {
       setLoading(false);
     }
@@ -436,7 +436,7 @@ JSON: {"title":"","summary":"","targetJob":null,"months":[{"month":1,"theme":"",
   // ═══════════════════════════════════════════════════════════
   const generateJdRoadmap = async () => {
     if (!jdText.trim()) { setJdError("Please paste a Job Description."); return; }
-    
+
     const hasResume = !!resumeText.trim() || !!resumeFile;
     if (!hasResume) {
       if (!jdPrepTime) { setJdError("Please select your prep time."); return; }
@@ -465,7 +465,7 @@ ${hasResume ? '- Include "skillsAnalysis" object: {"have":["skill"],"improve":["
       const jdTrimmed = jdText.length > 2000 ? jdText.slice(0, 2000) + '\n...(truncated)' : jdText;
       const resumeTrimmed = hasResume ? (resumeText.length > 2000 ? resumeText.slice(0, 2000) + '\n...(truncated)' : resumeText) : "";
 
-      const userMessage = hasResume 
+      const userMessage = hasResume
         ? `Job Description:\n${jdTrimmed}\n\nUser Resume:\n${resumeTrimmed}\n\nJSON: {"title":"Prep for: [Job Title]","summary":"","targetJob":"[Job Title] at [Company]","months":[{"month":1,"theme":"Month theme","domain":"JD Prep","weeks":[{"week":1,"topics":[{"title":"","done":false}]}],"milestone":""}],"projects":[""],"additionalTopics":[{"title":"","done":false}],"skillsAnalysis":{"have":[],"improve":[],"learn":[]},"error":null}`
         : `Job Description:\n${jdTrimmed}\n\nPrep Time: ${jdPrepTime}\nHours/Day: ${jdHours}\n\nJSON: {"title":"Prep for: [Job Title]","summary":"","targetJob":"[Job Title] at [Company]","months":[{"month":1,"theme":"Month theme","domain":"JD Prep","weeks":[{"week":1,"topics":[{"title":"","done":false}]}],"milestone":""}],"projects":[""],"additionalTopics":[{"title":"","done":false}],"error":null}`;
 
@@ -556,10 +556,9 @@ ${hasResume ? '- Include "skillsAnalysis" object: {"have":["skill"],"improve":["
   // TAB BAR STYLING
   // ═══════════════════════════════════════════════════════════
   const tabBtn = (tab) =>
-    `px-5 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-200 border ${
-      activeTab === tab
-        ? 'bg-[var(--accent-glow)] border-[var(--accent-primary)] text-[var(--text-primary)] shadow-[0_0_10px_rgba(14,165,233,0.2)]'
-        : 'bg-[var(--bg-surface)] border-[var(--border-glass)] text-[var(--text-secondary)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)]'
+    `px-5 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-200 border ${activeTab === tab
+      ? 'bg-[var(--accent-glow)] border-[var(--accent-primary)] text-[var(--text-primary)] shadow-[0_0_10px_rgba(14,165,233,0.2)]'
+      : 'bg-[var(--bg-surface)] border-[var(--border-glass)] text-[var(--text-secondary)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)]'
     }`;
 
   // ═══════════════════════════════════════════════════════════
@@ -690,11 +689,11 @@ ${hasResume ? '- Include "skillsAnalysis" object: {"have":["skill"],"improve":["
 
       {/* Tab bar */}
       <div className="flex gap-2 flex-wrap">
-          <button onClick={() => setActiveTab('career')} className={tabBtn('career')}>✦ Career Roadmap</button>
-          <button onClick={() => setActiveTab('jd')} className={tabBtn('jd')}>🎯 JD-Based Roadmap</button>
-          <button onClick={() => setActiveTab('default')} className={tabBtn('default')}>📚 Default Roadmaps</button>
-          <button onClick={() => setActiveTab('saved')} className={tabBtn('saved')}>💾 Saved</button>
-        </div>
+        <button onClick={() => setActiveTab('career')} className={tabBtn('career')}>✦ Career Roadmap</button>
+        <button onClick={() => setActiveTab('jd')} className={tabBtn('jd')}>🎯 JD-Based Roadmap</button>
+        <button onClick={() => setActiveTab('default')} className={tabBtn('default')}>📚 Default Roadmaps</button>
+        <button onClick={() => setActiveTab('saved')} className={tabBtn('saved')}>💾 Saved</button>
+      </div>
 
       {/* ──────── CAREER TAB ──────── */}
       {activeTab === 'career' && stage === 'questions' && (
@@ -925,7 +924,7 @@ ${hasResume ? '- Include "skillsAnalysis" object: {"have":["skill"],"improve":["
               <p className="font-bold text-[var(--text-primary)] tracking-wide mb-1">💾 Saved Roadmaps</p>
               <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--text-secondary)]">View and manage your previously saved roadmaps</p>
             </div>
-            
+
             {savedLoading ? (
               <div className="flex items-center gap-2 text-[var(--accent-highlight)] text-sm">
                 <span className="animate-spin">✦</span> Loading saved roadmaps...
