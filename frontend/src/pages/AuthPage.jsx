@@ -12,11 +12,17 @@ const DEPARTMENTS = [
     { val: 'CIVIL', label: 'Civil Engineering' },
 ];
 
+
 export default function AuthPage() {
     const navigate = useNavigate();
     const [active, setActive] = useState(false);   // false=login  true=register
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+
+    useEffect(() => {
+        // Wake up Railway backend on page load
+        axiosClient.get('/api/auth/health').catch(() => { });
+    }, []);
 
     // ── Login state ──────────────────────────────────────────
     const [login, setLogin] = useState({ email: '', password: '' });
